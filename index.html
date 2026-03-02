@@ -11,6 +11,15 @@
         background-color: cyan;
       }
     </style>
+    <script>
+      const file = document.getElementById("fileItem").files[0];
+      const response = await fetch("seidgethemage.github.io/seidgesignature.sig");
+      const blob = await response.blob();
+      const file2 = new File([blob], fileName, { type: mimeType || blob.type });
+      const stego = await fetch("com.openstego.desktop");
+      const verif = stego.OpenStego.checkMark(file, file2);
+      console.log(verif);
+    </script>
   </head>
   <body>
     <h1>Seidge's Page</h1>
